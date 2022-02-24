@@ -26,7 +26,7 @@ void prepareAlertTextForController(BreachType breachType, char AlertMessage[10])
 
 void prepareAlertTextForEmail(BreachType breachType, char AlertMessage[44]) {
    char recepient[] = "a.b@c.com";
-   char AlertMessagesForEmail[][31] = {"Hi, the temperature is Normal",
+   char AlertMessagesForEmail[][32] = {"Hi, the temperature is Normal",
                                        "Hi, the temperature is too low", 
                                        "Hi, the temperature is too high"};
 
