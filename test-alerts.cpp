@@ -51,7 +51,7 @@ TEST_CASE("Testcase for AlertTextFormatters in Email Target") {
 
 TEST_CASE("Testcase for AlertTextFormatters in Controller Target") {
   char ExpectedAlertMessage[] = "feed : 2";
-  prepareAlertTextForController(TOO_HIGH, TestAlertMessage);
+  prepareAlertTextForController(TOO_HIGH);
   // String Compare returns 0 if strings are equal. But "REQUIRE" needs 1 if they are equal.
   // Hence added "!"
   REQUIRE(!strcmp(MessageToBeDisplayedOnConsole,ExpectedAlertMessage));
