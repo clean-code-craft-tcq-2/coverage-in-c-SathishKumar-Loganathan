@@ -11,6 +11,8 @@
 #define MED_ACTIVE_COOLING_LOWER_LIMIT 0
 #define MED_ACTIVE_COOLING_UPPER_LIMIT 40
 
+extern char MessageToBeDisplayedOnConsole[44];
+
 typedef enum {
   PASSIVE_COOLING,
   HI_ACTIVE_COOLING,
