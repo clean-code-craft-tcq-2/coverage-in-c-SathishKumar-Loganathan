@@ -42,21 +42,19 @@ TEST_CASE("Testcase for retreiving the limits") {
 }
 
 TEST_CASE("Testcase for AlertTextFormatters in Email Target") {
-  char TestAlertMessage[44] = "";
   char ExpectedAlertMessage[] = "a.b@c.com : Hi, the temperature is too low";
-  prepareAlertTextForEmail(TOO_LOW, TestAlertMessage);
+  prepareAlertTextForEmail(TOO_LOW);
   // String Compare returns 0 if strings are equal. But "REQUIRE" needs 1 if they are equal.
   // Hence added "!"
-  REQUIRE(!strcmp(TestAlertMessage,ExpectedAlertMessage));
+  REQUIRE(!strcmp(MessageToBeDisplayedOnConsole,ExpectedAlertMessage));
 }
 
 TEST_CASE("Testcase for AlertTextFormatters in Controller Target") {
-  char TestAlertMessage[44] = "";
   char ExpectedAlertMessage[] = "feed : 2";
   prepareAlertTextForController(TOO_HIGH, TestAlertMessage);
   // String Compare returns 0 if strings are equal. But "REQUIRE" needs 1 if they are equal.
   // Hence added "!"
-  REQUIRE(!strcmp(TestAlertMessage,ExpectedAlertMessage));
+  REQUIRE(!strcmp(MessageToBeDisplayedOnConsole,ExpectedAlertMessage));
 }
 
 TEST_CASE("Testcase for validating function PerformBatteryCheck") {
