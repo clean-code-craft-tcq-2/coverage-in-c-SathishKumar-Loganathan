@@ -27,7 +27,7 @@ TEST_CASE("Testcase for retreiving the limits") {
 
 TEST_CASE("Testcase for AlertTextFormatters in Email Target") {
   char TestAlertMessage[44] = "";
-  char ExpectedAlertMessage = "a.b@c.com : Hi, the temperature is too low";
+  char ExpectedAlertMessage[] = "a.b@c.com : Hi, the temperature is too low";
   prepareAlertTextForEmail(TOO_LOW, TestAlertMessage);
   REQUIRE(TestAlertMessage == ExpectedAlertMessage);
 }
