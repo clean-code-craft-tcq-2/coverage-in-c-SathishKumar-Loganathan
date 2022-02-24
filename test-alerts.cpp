@@ -59,5 +59,6 @@ TEST_CASE("Testcase to cover print functions") {
   // Call Print functions, but they are no testable (Only for coverage -_-);
   printOnConsole(NULL);
   Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,50);
+  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,-25);
   REQUIRE(1);
 }
