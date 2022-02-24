@@ -62,7 +62,7 @@ TEST_CASE("Testcase to cover print functions") {
   REQUIRE(1);
 }
 
-TEST_CASE("Testcase to cover print functions") {
+TEST_CASE("Testcase to cover wrapper functions") {
   BatteryCharacter myBatteryChar = {MED_ACTIVE_COOLING, "BATTERY"};
   // Call Print functions, but they are no testable (Only for coverage -_-);
   Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,-25);
