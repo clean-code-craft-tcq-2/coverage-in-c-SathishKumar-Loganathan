@@ -21,7 +21,7 @@ BreachType classifyTemperatureBreach(int MapForCoolingTypeVsRange[][TEMPERATURE_
 
 void prepareAlertTextForController(BreachType breachType, char AlertMessage[10]) {
   const unsigned short header = 0xfeed;
-  snprintf(AlertMessage,10,"%x : %x\n", header, breachType);
+  snprintf(AlertMessage,10,"%x : %x", header, breachType);
 }
 
 void prepareAlertTextForEmail(BreachType breachType, char AlertMessage[44]) {
