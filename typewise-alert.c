@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-void (*pointerToAlertingOptions[]) (BreachType, char *) = {prepareAlertTextForController,prepareAlertTextForEmail};
-
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit) {
     return TOO_LOW;
@@ -46,6 +44,7 @@ BreachType PerformBatteryCheck(BatteryCharacter batteryChar, double temperatureI
 void Initialize_and_Start_BatteryCheckSystem (AlertTarget currentAlertTarget, BatteryCharacter batteryChar, double temperatureInC) {
     /* Initialize parameters*/
     char MessageToBeDisplayedOnConsole[44] = "";
+    void (*pointerToAlertingOptions[]) (BreachType, char *) = {prepareAlertTextForController,prepareAlertTextForEmail};
     int RangeBasedOnCoolingType[COOLING_TYPES][TEMPERATURE_LIMITS] = {{PASSIVE_COOLING_LOWER_LIMIT, PASSIVE_COOLING_UPPER_LIMIT}, 
                                                                       {HI_ACTIVE_COOLING_LOWER_LIMIT, HI_ACTIVE_COOLING_UPPER_LIMIT}, 
                                                                       {MED_ACTIVE_COOLING_LOWER_LIMIT, MED_ACTIVE_COOLING_UPPER_LIMIT}};
