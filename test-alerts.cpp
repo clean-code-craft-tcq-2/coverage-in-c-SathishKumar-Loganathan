@@ -30,5 +30,26 @@ TEST_CASE("Testcase for AlertTextFormatters in Email Target") {
   char TestAlertMessage[44] = "";
   char ExpectedAlertMessage[] = "a.b@c.com : Hi, the temperature is too low";
   prepareAlertTextForEmail(TOO_LOW, TestAlertMessage);
+  // String Compare returns 0 if strings are equal. But "REQUIRE" needs 1 if they are equal.
+  // Hence added "!"
   REQUIRE(!strcmp(TestAlertMessage,ExpectedAlertMessage));
+}
+
+TEST_CASE("Testcase for AlertTextFormatters in Controller Target") {
+  char TestAlertMessage[44] = "";
+  char ExpectedAlertMessage[] = "feed : 2";
+  prepareAlertTextForController(2, TestAlertMessage);
+  // String Compare returns 0 if strings are equal. But "REQUIRE" needs 1 if they are equal.
+  // Hence added "!"
+  REQUIRE(!strcmp(TestAlertMessage,ExpectedAlertMessage));
+}
+
+TEST_CASE("Testcase for validating function PerformBatteryCheck") {
+  BatteryCharacter myBatteryChar = {0, "EXIDE"};
+  double temperatureInC = 30;
+  int RangeBasedOnCoolingType[COOLING_TYPES][TEMPERATURE_LIMITS] = {{PASSIVE_COOLING_LOWER_LIMIT, PASSIVE_COOLING_UPPER_LIMIT}, 
+                                                                    {HI_ACTIVE_COOLING_LOWER_LIMIT, HI_ACTIVE_COOLING_UPPER_LIMIT}, 
+                                                                    {MED_ACTIVE_COOLING_LOWER_LIMIT, MED_ACTIVE_COOLING_UPPER_LIMIT}};
+  
+  REQUIRE(PerformBatteryCheck(batteryChar, temperatureInC, RangeBasedOnCoolingType) == 0);
 }
