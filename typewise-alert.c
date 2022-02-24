@@ -34,7 +34,7 @@ void prepareAlertTextForEmail(BreachType breachType, char AlertMessage[44]) {
 }
 
 void printOnConsole(char *stringToBePrinted) {
-    printf("%s",stringToBePrinted);
+    printf("%s\n",stringToBePrinted);
 }
 
 BreachType PerformBatteryCheck(BatteryCharacter batteryChar, double temperatureInC, int RangeBasedOnCoolingType[][TEMPERATURE_LIMITS]) {
