@@ -74,9 +74,9 @@ TEST_CASE("Testcase to cover wrapper functions") {
   testWrapperFunctions(BatteryChar);
   
   BatteryChar.coolingType = HI_ACTIVE_COOLING;
-  testWrapperFunctions();
+  testWrapperFunctions(BatteryChar);
   
   BatteryChar.coolingType = MED_ACTIVE_COOLING;
-  testWrapperFunctions();
+  testWrapperFunctions(BatteryChar);
   REQUIRE(1);
 }
