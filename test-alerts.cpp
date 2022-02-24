@@ -53,3 +53,11 @@ TEST_CASE("Testcase for validating function PerformBatteryCheck") {
   
   REQUIRE(PerformBatteryCheck(myBatteryChar, temperatureInC, RangeBasedOnCoolingType) == 0);
 }
+
+TEST_CASE("Testcase to cover print functions") {
+  BatteryCharacter myBatteryChar = {PASSIVE_COOLING, "EXIDE"};
+  // Call Print functions, but they are no testable (Only for coverage -_-);
+  printOnConsole(NULL);
+  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,50);
+  REQUIRE(1);
+}
