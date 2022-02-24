@@ -45,11 +45,11 @@ TEST_CASE("Testcase for AlertTextFormatters in Controller Target") {
 }
 
 TEST_CASE("Testcase for validating function PerformBatteryCheck") {
-  BatteryCharacter myBatteryChar = {NORMAL, "EXIDE"};
+  BatteryCharacter myBatteryChar = {PASSIVE_COOLING, "EXIDE"};
   double temperatureInC = 30;
   int RangeBasedOnCoolingType[COOLING_TYPES][TEMPERATURE_LIMITS] = {{PASSIVE_COOLING_LOWER_LIMIT, PASSIVE_COOLING_UPPER_LIMIT}, 
                                                                     {HI_ACTIVE_COOLING_LOWER_LIMIT, HI_ACTIVE_COOLING_UPPER_LIMIT}, 
                                                                     {MED_ACTIVE_COOLING_LOWER_LIMIT, MED_ACTIVE_COOLING_UPPER_LIMIT}};
   
-  REQUIRE(PerformBatteryCheck(batteryChar, temperatureInC, RangeBasedOnCoolingType) == 0);
+  REQUIRE(PerformBatteryCheck(myBatteryChar, temperatureInC, RangeBasedOnCoolingType) == 0);
 }
