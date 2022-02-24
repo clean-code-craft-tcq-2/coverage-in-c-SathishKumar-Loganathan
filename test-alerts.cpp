@@ -2,6 +2,7 @@
 
 #include "test/catch.hpp"
 #include "typewise-alert.h"
+#include <string.h>
 
 TEST_CASE("Testcase for breaching LowerLimit") {
   REQUIRE(inferBreach(12, 20, 30) == TOO_LOW);
@@ -29,5 +30,5 @@ TEST_CASE("Testcase for AlertTextFormatters in Email Target") {
   char TestAlertMessage[44] = "";
   char ExpectedAlertMessage[] = "a.b@c.com : Hi, the temperature is too low";
   prepareAlertTextForEmail(TOO_LOW, TestAlertMessage);
-  REQUIRE(TestAlertMessage == ExpectedAlertMessage);
+  REQUIRE(strcmp(TestAlertMessage,ExpectedAlertMessage));
 }
