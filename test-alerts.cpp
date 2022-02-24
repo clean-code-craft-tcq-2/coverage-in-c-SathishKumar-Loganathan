@@ -16,7 +16,7 @@ TEST_CASE("Testcase for valid limit") {
 }
 
 TEST_CASE("Testcase for retreiving the limits") {
-  BatteryCharacter myBatteryChar = {0, "EXIDE"};
+  BatteryCharacter myBatteryChar = {PASSIVE_COOLING, "EXIDE"};
   double temperatureInC = 50;
   int RangeBasedOnCoolingType[COOLING_TYPES][TEMPERATURE_LIMITS] = {{PASSIVE_COOLING_LOWER_LIMIT, PASSIVE_COOLING_UPPER_LIMIT}, 
                                                                     {HI_ACTIVE_COOLING_LOWER_LIMIT, HI_ACTIVE_COOLING_UPPER_LIMIT}, 
@@ -27,6 +27,7 @@ TEST_CASE("Testcase for retreiving the limits") {
 
 TEST_CASE("Testcase for AlertTextFormatters in Email Target") {
   char TestAlertMessage[44] = "";
-  prepareAlertTextForEmail(TOO_LOW, TestAlertMessage)
-  REQUIRE(TestAlertMessage == "a.b@c.com : Hi, the temperature is too low");
+  char ExpectedAlertMessage = "a.b@c.com : Hi, the temperature is too low";
+  prepareAlertTextForEmail(TOO_LOW, TestAlertMessage);
+  REQUIRE(TestAlertMessage == ExpectedAlertMessage);
 }
