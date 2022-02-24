@@ -44,9 +44,10 @@ BreachType PerformBatteryCheck(BatteryCharacter batteryChar, double temperatureI
     return classifyTemperatureBreach(RangeBasedOnCoolingType, batteryChar.coolingType, temperatureInC);
 }
 
-void callPointerToAlertOptions(AlertTarget currentAlertTarget, BreachType breachType) {
+void alertAndPrint(AlertTarget currentAlertTarget, BreachType breachType) {
   /* Provide Alert on the requested Target*/
-  pointerToAlertingOptions[currentAlertTarget](breachType);
+  pointerToAlertingOptions[currentAlertTarget](breachType); // Function Pointers of different targets
+  (void) printOnConsole(MessageToBeDisplayedOnConsole);
 }
 
 void Initialize_and_Start_BatteryCheckSystem (AlertTarget currentAlertTarget, BatteryCharacter batteryChar, double temperatureInC) {
@@ -58,6 +59,5 @@ void Initialize_and_Start_BatteryCheckSystem (AlertTarget currentAlertTarget, Ba
     /* Start the System */
     BreachType breachType = PerformBatteryCheck(batteryChar, temperatureInC, RangeBasedOnCoolingType);
     
-    (void) callPointerToAlertOptions(currentAlertTarget,breachType);
-    (void) printOnConsole(MessageToBeDisplayedOnConsole);
+    (void) alertAndPrint(currentAlertTarget,breachType);
 }
