@@ -33,3 +33,10 @@ typedef struct {
   char brand[48];
 } BatteryCharacter;
 
+BreachType inferBreach(double value, double lowerLimit, double upperLimit);
+BreachType classifyTemperatureBreach(int MapForCoolingTypeVsRange[][TEMPERATURE_LIMITS], CoolingType coolingType, double temperatureInC);
+void prepareAlertTextForController(BreachType breachType, char AlertMessage[10]);
+void prepareAlertTextForEmail(BreachType breachType, char AlertMessage[44]);
+void printOnConsole(char *stringToBePrinted);
+BreachType PerformBatteryCheck(BatteryCharacter batteryChar, double temperatureInC, int RangeBasedOnCoolingType[][TEMPERATURE_LIMITS]);
+void Initialize_and_Start_BatteryCheckSystem (AlertTarget currentAlertTarget, BatteryCharacter batteryChar, double temperatureInC);
