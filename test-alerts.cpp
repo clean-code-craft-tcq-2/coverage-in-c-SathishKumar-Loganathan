@@ -30,12 +30,12 @@ TEST_CASE("Testcase for retreiving the limits") {
   testCaseHelper_classifyTemperatureBreach(RangeBasedOnCoolingType, coolingType, 10, NORMAL);
   testCaseHelper_classifyTemperatureBreach(RangeBasedOnCoolingType, coolingType, 40, TOO_HIGH);
   
-  CoolingType coolingType = HI_ACTIVE_COOLING;
+  coolingType = HI_ACTIVE_COOLING;
   testCaseHelper_classifyTemperatureBreach(RangeBasedOnCoolingType, coolingType, -20, TOO_LOW);
   testCaseHelper_classifyTemperatureBreach(RangeBasedOnCoolingType, coolingType, 10, NORMAL);
   testCaseHelper_classifyTemperatureBreach(RangeBasedOnCoolingType, coolingType, 50, TOO_HIGH);
   
-  CoolingType coolingType = MED_ACTIVE_COOLING;
+  coolingType = MED_ACTIVE_COOLING;
   testCaseHelper_classifyTemperatureBreach(RangeBasedOnCoolingType, coolingType, -20, TOO_LOW);
   testCaseHelper_classifyTemperatureBreach(RangeBasedOnCoolingType, coolingType, 10, NORMAL);
   testCaseHelper_classifyTemperatureBreach(RangeBasedOnCoolingType, coolingType, 40, TOO_HIGH);
