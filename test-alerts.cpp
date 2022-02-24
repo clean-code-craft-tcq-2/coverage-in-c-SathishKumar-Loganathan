@@ -38,7 +38,7 @@ TEST_CASE("Testcase for retreiving the limits") {
   coolingType = MED_ACTIVE_COOLING;
   testCaseHelper_classifyTemperatureBreach(RangeBasedOnCoolingType, coolingType, -20, TOO_LOW);
   testCaseHelper_classifyTemperatureBreach(RangeBasedOnCoolingType, coolingType, 10, NORMAL);
-  testCaseHelper_classifyTemperatureBreach(RangeBasedOnCoolingType, coolingType, 40, TOO_HIGH);
+  testCaseHelper_classifyTemperatureBreach(RangeBasedOnCoolingType, coolingType, 41, TOO_HIGH);
 }
 
 TEST_CASE("Testcase for AlertTextFormatters in Email Target") {
