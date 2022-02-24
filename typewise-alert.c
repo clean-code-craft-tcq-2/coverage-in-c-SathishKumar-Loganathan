@@ -53,8 +53,6 @@ void Initialize_and_Start_BatteryCheckSystem (AlertTarget currentAlertTarget, Ba
     /* Start the System */
     BreachType breachType = PerformBatteryCheck(batteryChar, temperatureInC, RangeBasedOnCoolingType);
     
-    MessageToBeDisplayedOnConsole = ""; // Clear the Buffer
-    
     /* Provide Alert on the requested Target*/
     pointerToAlertingOptions[currentAlertTarget](breachType);
     printOnConsole(MessageToBeDisplayedOnConsole);
