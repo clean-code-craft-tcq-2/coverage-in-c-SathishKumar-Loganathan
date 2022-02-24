@@ -60,30 +60,23 @@ TEST_CASE("Testcase to cover print functions") {
   REQUIRE(1);
 }
 
+void testWrapperFunctions(BatteryCharacter myBatteryChar) {
+  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,-25);
+  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,25);
+  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,50);
+  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,-25);
+  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,25);
+  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,50);
+}
+
 TEST_CASE("Testcase to cover wrapper functions") {
   BatteryCharacter BatteryChar = {PASSIVE_COOLING, "BATTERY"};
-  BatteryCharacter *myBatteryChar = &BatteryChar
-  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,-25);
-  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,25);
-  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,50);
-  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,-25);
-  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,25);
-  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,50);
+  testWrapperFunctions(BatteryChar);
   
-  myBatteryChar->coolingType = HI_ACTIVE_COOLING;
-  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,-25);
-  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,25);
-  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,50);
-  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,-25);
-  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,25);
-  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,50);
+  BatteryChar.coolingType = HI_ACTIVE_COOLING;
+  testWrapperFunctions();
   
-  myBatteryChar->coolingType = MED_ACTIVE_COOLING;
-  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,-25);
-  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,25);
-  Initialize_and_Start_BatteryCheckSystem(TO_EMAIL,myBatteryChar,50);
-  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,-25);
-  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,25);
-  Initialize_and_Start_BatteryCheckSystem(TO_CONTROLLER,myBatteryChar,50);
+  BatteryChar.coolingType = MED_ACTIVE_COOLING;
+  testWrapperFunctions();
   REQUIRE(1);
 }
